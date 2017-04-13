@@ -23,5 +23,13 @@ export default {
         return t
       })
     })
+  },
+
+  thread (thread) {
+    return r.getSubmission(thread).fetch()
+    .then(t => {
+      t.relativeTime = moment(t.created_utc * 1000).fromNow()
+      return t
+    })
   }
 }

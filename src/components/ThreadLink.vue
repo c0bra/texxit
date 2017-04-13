@@ -1,6 +1,6 @@
 <template lang="jade">
   .thread
-    router-link.link(to="thread")
+    router-link.link(:to="{ name: 'thread', params: { subreddit: thread.subreddit.display_name, thread: thread.id } }")
       b {{ thread.title }}
     br
     span.subreddit-name

@@ -6,7 +6,7 @@
 <template lang="jade">
   .subreddit
     .title {{ title }}
-    thread-link(v-for="thread in threads", :thread="thread")
+    thread-link(v-for="thread in threads", :thread="thread", :key="thread.id")
 </template>
 
 <script>

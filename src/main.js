@@ -7,6 +7,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import './assets/main.less'
+
 Vue.config.productionTip = false
 Vue.use(VueResource)
 
