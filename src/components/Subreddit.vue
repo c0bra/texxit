@@ -5,7 +5,8 @@
 
 <template lang="jade">
   .subreddit
-    thread-link(v-for="thread in threads", v-bind:thread="thread")
+    .title {{ title }}
+    thread-link(v-for="thread in threads", :thread="thread")
 </template>
 
 <script>
@@ -24,11 +25,29 @@
       Thread,
       ThreadLink
     },
+    computed: {
+      title: function () {
+        if (!this.$route.params.subreddit) {
+          return 'All Posts'
+        } else {
+          return this.$route.params.subreddit
+        }
+      }
+    },
+    watch: {
+      '$route': 'init'
+    },
     mounted () {
-      reddit.hot().then(data => {
-        console.log(data)
-        this.threads = data
-      })
+      this.init()
+    },
+    methods: {
+      init () {
+        reddit.hot(this.$route.params.subreddit)
+        .then(data => {
+          console.log(data)
+          this.threads = data
+        })
+      }
     }
   }
 </script>
@@ -36,5 +55,11 @@
 <style scoped>
   .subreddit {
 
+  }
+
+  .title {
+    margin-left: 20px;
+    text-align: left;
+    font-size: 2em;
   }
 </style>

@@ -5,11 +5,13 @@ import Subreddit from '@/components/Subreddit'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/:subreddit?',
-      name: 'Index',
-      component: Subreddit
+      name: 'index',
+      component: Subreddit,
+      alias: '/r/:subreddit'
     }
   ]
 })
