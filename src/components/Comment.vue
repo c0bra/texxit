@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  @colors: #7eb57d, #f90, #569ec9, #e5414d, #774f73, #958364, #7eb57d;
+  @colors: #7eb57d, #f90, #569ec9, #e5414d, #774f73, #958364, #7eb57d, #f90, #569ec9, #e5414d, #774f73, #958364, #7eb57d, #f90, #569ec9, #e5414d, #774f73, #958364, #7eb57d, #f90, #569ec9, #e5414d, #774f73, #958364, #7eb57d;
 
 	.comment {
     // padding: 12px 0;

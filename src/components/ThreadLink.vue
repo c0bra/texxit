@@ -1,6 +1,6 @@
 <template lang="jade">
   .thread
-    router-link.link(:to="{ name: 'thread', params: { subreddit: thread.subreddit.display_name, thread: thread.id } }")
+    a(:href="thread.url", target="_new")
       b {{ thread.title }}
     br
     span.subreddit-name
@@ -9,9 +9,8 @@
     span.domain {{ thread.domain }}
     br
     span.score {{ thread.score }}
-    span.comments
+    router-link.comments(:to="{ name: 'thread', params: { subreddit: thread.subreddit.display_name, thread: thread.id } }")
       i.fa.fa-comment
-      &nbsp;
       {{ thread.num_comments }}
     span.time {{ thread.relativeTime }}
 </template>
@@ -29,6 +28,11 @@ export default {
     margin: 20px;
     border-radius: 4px;
     text-align: left;
+    text-decoration: none;
+
+    .link {
+      color: #555;
+    }
 
     a {
       color: #555;
@@ -59,9 +63,14 @@ export default {
     margin-left: 0;
   }
 
-  .comments {
+  .comments, a.comments {
     .smallitem();
     font-weight: bold;
+    color: #999;
+
+    .fa {
+      margin-right: 4px;
+    }
   }
 
   .time {
