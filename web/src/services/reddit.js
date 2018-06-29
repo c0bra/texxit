@@ -1,14 +1,9 @@
 import moment from 'moment';
 import Snoowrap from 'snoowrap';
 
-// import { clientId, clientSecret, username, password } from './config';
-
 const r = new Snoowrap({
 	userAgent: 'texxit',
 	clientId: 'uJok-wap-ASXSg',
-	// clientSecret,
-	// username,
-	// password,
 	accessToken: '',
 });
 
